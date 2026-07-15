@@ -1,0 +1,37 @@
+name: Script Change
+description: Propose a new script or modification to an existing one
+title: "[script]: "
+labels: ["script-change"]
+body:
+  - type: input
+    id: script-name
+    attributes:
+      label: Script name
+      placeholder: "e.g. scripts/db/db-backup.py"
+    validations:
+      required: true
+  - type: dropdown
+    id: danger-level
+    attributes:
+      label: Danger classification
+      options:
+        - Safe (read-only)
+        - Destructive-adjacent
+        - Destructive
+        - Security-critical
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does this script do and why is it needed?
+    validations:
+      required: true
+  - type: textarea
+    id: dry-run
+    attributes:
+      label: Dry-run behaviour
+      description: What should `--dry-run` output for this script?
+    validations:
+      required: false

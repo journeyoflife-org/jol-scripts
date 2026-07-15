@@ -1,0 +1,6 @@
+# Code Owners
+* @jol-admin
+
+scripts/db/ @jol-dba
+scripts/kubernetes/ @jol-platform
+scripts/secrets/ @jol-security

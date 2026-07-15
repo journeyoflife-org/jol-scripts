@@ -1,0 +1,28 @@
+# Qodana — jol-scripts
+# Focus: Python security (bandit via S-rules), unused imports, type safety
+version: "1.0"
+
+linter: jetbrains/qodana-python-community:2026.1
+
+profile:
+  name: qodana.recommended
+
+bootstrap: |
+  pip install --quiet ruff mypy bandit pip-audit pytest pytest-cov 2>/dev/null || true
+
+include:
+  - name: PyUnresolvedReferences
+  - name: PyShadowingNames
+  - name: PyUnusedLocal
+  - name: PyPackageRequirements
+
+exclude:
+  - name: All
+    paths:
+      - .venv/
+      - .git/
+      - logs/
+      - "tests/**"
+
+# Any CRITICAL issue fails the build
+failThreshold: 1

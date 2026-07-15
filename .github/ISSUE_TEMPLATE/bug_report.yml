@@ -1,0 +1,34 @@
+name: Bug Report
+description: Report a bug in a script or library
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: input
+    id: script
+    attributes:
+      label: Affected script or module
+      placeholder: "e.g. scripts/db/db-backup.py or lib/jol_logger.py"
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug and expected behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Command(s) and input that trigger the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste structured audit log entries or traceback.
+      render: text
+    validations:
+      required: false
