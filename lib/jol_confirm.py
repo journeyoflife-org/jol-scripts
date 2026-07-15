@@ -32,6 +32,7 @@ def require_confirmation(script_name: str, danger_level: str) -> None:
     print(f"    To confirm, type the script name exactly: {script_name}")
     print(f"{'=' * 60}")
 
+    user_input = ""
     try:
         user_input = input("Confirm script name: ").strip()
     except (EOFError, KeyboardInterrupt):
