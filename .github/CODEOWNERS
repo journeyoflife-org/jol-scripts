@@ -1,6 +1,6 @@
 # Code Owners
-*                                   @jol-admin
+*                                   @journeyoflife-org/devops
 
-scripts/db/                         @jol-dba
-scripts/kubernetes/                 @jol-platform
-scripts/secrets/                    @jol-security
+scripts/db/                         @journeyoflife-org/backend
+scripts/kubernetes/                 @journeyoflife-org/devops
+scripts/secrets/                    @journeyoflife-org/security
