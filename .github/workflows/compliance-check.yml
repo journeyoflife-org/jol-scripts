@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0  # Full history for gitleaks
 
       - name: TruffleHog - scan for leaked secrets
-        uses: trufflesecurity/trufflehog@288a8a8643a2c5a36b81d231c550dccfa0beeb64  # main
+        uses: trufflesecurity/trufflehog@48b58d3bf3f02ba17bf23b87f095499bc80c6fd7  # main
         with:
           extra_args: --only-verified
 
