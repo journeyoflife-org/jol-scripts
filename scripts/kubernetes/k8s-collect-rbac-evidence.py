@@ -52,7 +52,12 @@ class K8sCollectRbacEvidence(JolBaseScript):
 
         self.logger.info(f"Collecting RBAC evidence (namespace={args.namespace or 'all'})")
         # TODO: Implement kubernetes client API calls
-        evidence = {"cluster_roles": [], "role_bindings": [], "cluster_role_bindings": [], "service_accounts": []}
+        evidence: dict[str, list[object]] = {
+            "cluster_roles": [],
+            "role_bindings": [],
+            "cluster_role_bindings": [],
+            "service_accounts": [],
+        }
 
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)

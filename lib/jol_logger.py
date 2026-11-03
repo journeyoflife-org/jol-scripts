@@ -72,7 +72,7 @@ class JolLogger:
     def debug(self, msg: str, **kw: object) -> None:
         self._logger.debug(self._entry("DEBUG", msg, **kw))
 
-    def audit_header(self, script: str, danger: str, dry_run: bool, args: dict) -> None:  # noqa: FBT001
+    def audit_header(self, script: str, danger: str, dry_run: bool, args: dict[str, object]) -> None:  # noqa: FBT001
         msg = self._entry(
             "AUDIT",
             "SCRIPT_START",
