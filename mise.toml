@@ -1,0 +1,31 @@
+[tools]
+python = ["3.12", "3.11"]
+uv = "latest"
+
+[env]
+UV_PROJECT_ENVIRONMENT = ".venv"
+PYTHONPATH = "."
+
+[tasks.deps]
+description = "Create/refresh the isolated uv virtualenv from uv.lock"
+run = "uv sync --extra dev"
+
+[tasks.lint]
+description = "Ruff lint + format check (mirrors Makefile lint)"
+run = "uv run ruff check lib/ scripts/ && uv run ruff format --check lib/ scripts/"
+
+[tasks.scan]
+description = "Bandit SAST (mirrors Makefile scan)"
+run = "uv run bandit -c pyproject.toml -r lib/ scripts/"
+
+[tasks.typecheck]
+description = "mypy strict (mirrors Makefile typecheck)"
+run = "uv run mypy lib/ scripts/"
+
+[tasks.test]
+description = "pytest with coverage (mirrors Makefile test)"
+run = "uv run pytest"
+
+[tasks.validate]
+description = "Full gate set: lint + scan + typecheck + test"
+depends = ["lint", "scan", "typecheck", "test"]
